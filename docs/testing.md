@@ -16,7 +16,14 @@ Check the board serial port:
 pio device list
 ```
 
-If the board appears as a different `/dev/cu.usbmodem...` path, update both `upload_port` and `monitor_port` in `platformio.ini`.
+Important: the port committed in `platformio.ini` is only an example from the last tested Mac. Before uploading, update both `upload_port` and `monitor_port` to your own board port from `pio device list`.
+
+```ini
+upload_port = /dev/cu.usbmodemXXXX
+monitor_port = /dev/cu.usbmodemXXXX
+```
+
+If the board appears as a different `/dev/cu.usbmodem...` path later, update both lines again.
 
 Create the local WiFi config before building:
 

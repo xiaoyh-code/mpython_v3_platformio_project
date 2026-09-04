@@ -56,7 +56,20 @@ python3 -m venv .venv
 
 ## Build and Upload
 
-Check the serial device in `platformio.ini` first. macOS may change it after reconnecting the board.
+Check the serial device in `platformio.ini` first. The committed port is only the last port used on one Mac, not a universal value.
+
+```bash
+pio device list
+```
+
+Then change both lines in `platformio.ini` to your own board port:
+
+```ini
+upload_port = /dev/cu.usbmodemXXXX
+monitor_port = /dev/cu.usbmodemXXXX
+```
+
+On macOS the port is usually `/dev/cu.usbmodem...`, and it can change after reconnecting the board.
 
 ```bash
 pio run
